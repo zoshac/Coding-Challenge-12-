@@ -17,3 +17,13 @@ revenueCard.innerHTML = `
 // populating metric card 
 
 dashboardID.appendChild(revenueCard);
+
+// Task 2 Updating Dashboard Metrics - Working with NodeLists and Arrays
+const metricCards = document.querySelectorAll(".metric-card");
+
+const metricCardsArray = [...metricCards];
+
+metricCardsArray.forEach(card => {
+    card.innerText += "-Updated";
+    card.style.backgroundColor = `magenta`;
+});
