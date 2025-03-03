@@ -42,4 +42,33 @@ function addInventoryItem(productName){
     newItem.addEventListener("click", (event) => {
         inventoryList.removeChild(newItem);
     });
+    //removes new item when clicked 
+}
+
+// Task 4 Business Customer Section – Handling Event Bubbling
+const customerSection = document.getElementById("customerSection"); // Fixed typo
+
+// Ensure customerSection exists before adding event listeners
+if (customerSection) {
+    // Creating customer section
+    customerSection.addEventListener("click", () => {
+        console.log("Item Selected");
+    });
+
+    const customers = ["Customer 1", "Customer 2"];
+
+    customers.forEach((name) => {
+        const customerCard = document.createElement("div");
+        customerCard.classList.add("customer-card");
+        customerCard.innerText = name;
+
+        customerCard.addEventListener("click", (event) => {
+            console.log(name + " has been selected");
+            event.stopPropagation(); // Stops parent click event from firing
+        });
+
+        customerSection.appendChild(customerCard); // Add to the customer section
+    });
+} else {
+    console.error("Element with id 'customerSection' not found.");
 }
